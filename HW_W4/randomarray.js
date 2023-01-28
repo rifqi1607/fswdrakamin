@@ -11,7 +11,8 @@ const randomArray = []
 const indexGanjil = []
 const indexGenap = []
 
-// Fungsi generate random array berjumlah 100
+// Fungsi generate random array numeric dengan jumlah index 100, dengan parameter "start" & "end"
+// untuk menentukan batas awal dan akhir nilai yang akan dimasukkan.
 function generateRandom(start, end){
     for (let i = 0; i < arrayLength; i++) {
         let randomNumber =  Math.floor(Math.random() * end) + start;
@@ -75,7 +76,7 @@ function getCompareValue(arrGanjil,arrGenap){
     return result
 }
 
-// Memanggil fungsi generate random array
+// Memanggil fungsi generate random array dengan value numeric 1-50
 console.log(generateRandom(1,50))
 
 // Memanggil Fungsi memisahkan index array
@@ -83,7 +84,7 @@ const splitArr = splitIndex(randomArray)
 console.log(splitArr["ganjil"])
 console.log(splitArr["genap"])
 
-// memanggil fungsi untuk mendapatkan nilai max,min,total, dan rata2 dari array index ganjil
+// memanggil fungsi untuk mendapatkan nilai max, min, total, dan rata-rata dari array index ganjil
 const valMaxMinGanjil = getMaxMin(splitArr["ganjil"])
 const totalIdxGanjil = getTotal(splitArr["ganjil"])
 const avgIdxGanjil = getAvg(splitArr["ganjil"])
@@ -92,7 +93,7 @@ console.log("Nilai minimum dari index array ganjil adalah : "+valMaxMinGanjil["m
 console.log("Nilai total dari index array ganjil adalah : "+totalIdxGanjil)
 console.log("Nilai rata-rata dari index array ganjil adalah : "+avgIdxGanjil)
 
-// memanggil fungsi untuk mendapatkan nilai max,min,total, dan rata2 dari array index genap
+// memanggil fungsi untuk mendapatkan nilai max, min, total, dan rata-rata dari array index genap
 const valMaxMinGenap = getMaxMin(splitArr["genap"])
 const totalIdxGenap = getTotal(splitArr["genap"])
 const avgIdxGenap = getAvg(splitArr["genap"])
@@ -101,7 +102,7 @@ console.log("Nilai minimum dari index array genap adalah : "+valMaxMinGenap["min
 console.log("Nilai total dari index array genap adalah : "+totalIdxGenap)
 console.log("Nilai rata-rata dari index array genap adalah : "+avgIdxGenap)
 
-// memanggil fungsi untuk melakukan perbandingan nilai max,min,total, dan rata2
+// memanggil fungsi untuk melakukan perbandingan nilai max, min, total, dan rata-rata
 const compareMax = getCompareValue(valMaxMinGanjil["maxValue"], valMaxMinGenap["maxValue"])
 const compareMin = getCompareValue(valMaxMinGanjil["minValue"], valMaxMinGenap["minValue"])
 const compareTotal = getCompareValue(totalIdxGanjil, totalIdxGenap)
