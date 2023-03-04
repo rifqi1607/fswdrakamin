@@ -1,14 +1,23 @@
 const express = require('express')
 const router = express.Router()
 const pool = require('../config.js')
+const limit_default = 10
+const page_default = 1
 
 router.get('/users', (req, res, next) => {
+    
+    const {limit, page} = req.query
+
+    let resultLimit = limit ? +limit : limit_default
+    let resultPage = page ? +page : page_default
     
     const query = `
         SELECT 
             * 
         FROM users 
-            order by 1
+        order by 1
+        LIMIT ${resultLimit}
+        OFFSET ${(resultPage - 1) * resultLimit}
     `
 
     pool.query(query, (err, response) => {
